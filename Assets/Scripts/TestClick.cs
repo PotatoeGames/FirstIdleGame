@@ -14,19 +14,18 @@ public class TestClick : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-		
+		clickCounter.text = "Counter: " + clicks;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        clickCounter.text = "Counter: " + clicks;
-
+        
 	}
 
     public void clicked ()
     {
         clicks += countPerClick;
-
+		clickCounter.text = "Counter: " + clicks;
     }
 }
