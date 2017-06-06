@@ -322,8 +322,8 @@ Canvas:
   m_GameObject: {fileID: 578521031}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 292837216}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -639,3 +639,4 @@ MonoBehaviour:
   clickCounter: {fileID: 1336765683}
   clicks: 0
   countPerClick: 1
+  jumpScript: {fileID: 0}
