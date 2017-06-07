@@ -66,29 +66,29 @@ public class PlayerStats : MonoBehaviour
 		StartCoroutine (IncrementStats());
 	}
 
-	public void AddDrone()
+	public void IncDrone()
 	{
 		dronePopulation++;
 	}
 
-	public void AddDroneMultiplier()
+	public void IncDroneMultiplier()
 	{
 		droneValue += 0.1f;
 	}
 
-	public void AddDarkMatter()
+	public void IncDarkMatter()
 	{
 		playerDarkMatter += 1;
 		darkMatterBonus = 100 + (playerDarkMatter * 10);
 	}
 
-	public void AddIdleMultiplier()
+	public void IncIdleMultiplier()
 	{
 		if (idleMultiplier < 100)
 		idleMultiplier += 10;
 	}
 
-	public void AddDroneReproduction()
+	public void IncDroneReproduction()
 	{
 		droneReproduction += 1;
 	}

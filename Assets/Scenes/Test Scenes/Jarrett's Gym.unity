@@ -410,11 +410,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 72
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 7
+    m_MaxSize: 72
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -509,60 +509,45 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 400000, guid: 4bb8de1ae78727045be0fe731a7ff3e5, type: 3}
+    - target: {fileID: 4220359297423626, guid: 5724b0c309f0bf944b26204b0310cc82, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4bb8de1ae78727045be0fe731a7ff3e5, type: 3}
+    - target: {fileID: 4220359297423626, guid: 5724b0c309f0bf944b26204b0310cc82, type: 2}
       propertyPath: m_LocalPosition.y
       value: -5
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4bb8de1ae78727045be0fe731a7ff3e5, type: 3}
+    - target: {fileID: 4220359297423626, guid: 5724b0c309f0bf944b26204b0310cc82, type: 2}
       propertyPath: m_LocalPosition.z
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4bb8de1ae78727045be0fe731a7ff3e5, type: 3}
+    - target: {fileID: 4220359297423626, guid: 5724b0c309f0bf944b26204b0310cc82, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.27059805
+      value: 0.27059805
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4bb8de1ae78727045be0fe731a7ff3e5, type: 3}
+    - target: {fileID: 4220359297423626, guid: 5724b0c309f0bf944b26204b0310cc82, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0.6532815
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4bb8de1ae78727045be0fe731a7ff3e5, type: 3}
+    - target: {fileID: 4220359297423626, guid: 5724b0c309f0bf944b26204b0310cc82, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0.6532815
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4bb8de1ae78727045be0fe731a7ff3e5, type: 3}
+    - target: {fileID: 4220359297423626, guid: 5724b0c309f0bf944b26204b0310cc82, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.27059805
+      value: -0.27059805
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4bb8de1ae78727045be0fe731a7ff3e5, type: 3}
+    - target: {fileID: 4220359297423626, guid: 5724b0c309f0bf944b26204b0310cc82, type: 2}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 4bb8de1ae78727045be0fe731a7ff3e5, type: 3}
-      propertyPath: m_Name
-      value: Cabin
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 4bb8de1ae78727045be0fe731a7ff3e5, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+    - target: {fileID: 114419190671775006, guid: 5724b0c309f0bf944b26204b0310cc82,
+        type: 2}
+      propertyPath: clickCounter
       value: 
-      objectReference: {fileID: 2100000, guid: 9afe99fc14e2b1a40af36a953911b2c4, type: 2}
-    - target: {fileID: 400000, guid: 4bb8de1ae78727045be0fe731a7ff3e5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4bb8de1ae78727045be0fe731a7ff3e5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -45
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4bb8de1ae78727045be0fe731a7ff3e5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 180
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1336765683}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 4bb8de1ae78727045be0fe731a7ff3e5, type: 3}
+  m_ParentPrefab: {fileID: 100100000, guid: 5724b0c309f0bf944b26204b0310cc82, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1867493581
 GameObject:
@@ -695,10 +680,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1867493581}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbfc334b3b11bd49846e276aa6d6da0, type: 3}
+  m_Script: {fileID: 11500000, guid: 6708383334bbc4141915fcdc8c20d61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   clickCounter: {fileID: 1336765683}
   clicks: 0
   countPerClick: 1
-  jumpScript: {fileID: 0}
