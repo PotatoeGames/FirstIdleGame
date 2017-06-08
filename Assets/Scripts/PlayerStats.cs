@@ -19,7 +19,7 @@ public class PlayerStats : MonoBehaviour
 
 	[SerializeField] private int essenceProduction = 0;   //essence harvesting rate
 	[SerializeField] private int idleProduction = 0; 	  //essence harvesting rate when idle
-	[SerializeField] private float idleMultiplier = 10;    //scalar for essence production when app is closed
+	[SerializeField] private float idleMultiplier = 10;   //scalar for essence production when app is closed
 
 	[SerializeField] private int playerCredits = 0; 	  //amount of permanent-upgrade currency
 
@@ -28,6 +28,8 @@ public class PlayerStats : MonoBehaviour
 
 	public Text statText;
 	public Text playerEssenceText;
+	public Text dronePopulationText;
+	public Text playerCreditsText;
 
 	void Start () 
 	{
@@ -38,8 +40,14 @@ public class PlayerStats : MonoBehaviour
 			StartCoroutine (IncrementStats());
 
 		//might need the same gameobject.find? idk
-		if (playerEssenceText != null)
+		//if (playerEssenceText != null)
 			StartCoroutine (UpdateUI());
+
+		//if (dronePopulationText != null)
+			//StartCoroutine (UpdateUI());
+
+		//if (playerCreditsText != null)
+			//StartCoroutine (UpdateUI());
 		
 	}
 
@@ -80,7 +88,12 @@ public class PlayerStats : MonoBehaviour
 	IEnumerator UpdateUI()
 	{
 		yield return new WaitForSeconds (1);
+		if (playerEssenceText != null)
 		playerEssenceText.text = "Essence: " + playerEssence;
+		if (dronePopulationText != null)
+		dronePopulationText.text = "Drones: " + dronePopulation;
+		if (playerCreditsText != null)
+		playerCreditsText.text = "Credits: " + playerCredits;
 		StartCoroutine (UpdateUI());
 	}
 

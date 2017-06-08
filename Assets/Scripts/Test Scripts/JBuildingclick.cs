@@ -15,10 +15,10 @@ public class JBuildingclick : MonoBehaviour
 
 	void OnMouseDown()
 	{
-		
+		if (Stats != null)
+			Stats.IncPlayerEssence (countPerClick);
 		/*clicks += countPerClick;
 		clickCounter.text = "Counter: " + clicks;*/
-		Stats.IncPlayerEssence (countPerClick);
 		//clicks = Stats.IncPlayerEssence () ;
 		//clickCounter.text = "Essence: " + (Stats.GetPlayerEssence () + countPerClick);
 	}
