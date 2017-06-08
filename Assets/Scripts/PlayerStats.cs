@@ -8,35 +8,46 @@ using UnityEngine.UI;
 public class PlayerStats : MonoBehaviour 
 {
 	
-	[SerializeField] int playerEssence = 0; 	  //basic useable currency
-	[SerializeField] int totalEssence = 0;		  //total amount of currency acquired in current realm
+	[SerializeField] private int playerEssence = 0; 	  //basic useable currency
+	[SerializeField] private int totalEssence = 0;		  //total amount of currency acquired in current realm
 
-	[SerializeField] int baseValue = 0; 		  //total value of current operation
+	[SerializeField] private int baseValue = 0; 		  //total value of current operation
 
-	[SerializeField] int dronePopulation = 0; 	  //number of active drones
-	[SerializeField] int droneReproduction = 0;   //rate of increase in amount of drones
-	[SerializeField] float droneValue = 1; 		  //harvesting multiplier
+	[SerializeField] private int dronePopulation = 0; 	  //number of active drones
+	[SerializeField] private int droneReproduction = 0;   //rate of increase in amount of drones
+	[SerializeField] private float droneValue = 1; 		  //harvesting multiplier
 
-	[SerializeField] int essenceProduction = 0;   //essence harvesting rate
-	[SerializeField] int idleProduction = 0; 	  //essence harvesting rate when idle
-	[SerializeField] float idleMultiplier = 10;    //scalar for essence production when app is closed
+	[SerializeField] private int essenceProduction = 0;   //essence harvesting rate
+	[SerializeField] private int idleProduction = 0; 	  //essence harvesting rate when idle
+	[SerializeField] private float idleMultiplier = 10;    //scalar for essence production when app is closed
 
-	[SerializeField] int playerCredits = 0; 	  //amount of permanent-upgrade currency
+	[SerializeField] private int playerCredits = 0; 	  //amount of permanent-upgrade currency
 
-	[SerializeField] int playerDarkMatter = 0;    //amount of direct-multiplying currency
-	[SerializeField] int darkMatterBonus = 100;     //percentage bonus from total dark matter
+	[SerializeField] private int playerDarkMatter = 0;    //amount of direct-multiplying currency
+	[SerializeField] private int darkMatterBonus = 100;   //percentage bonus from total dark matter
 
 	public Text statText;
+	public Text playerEssenceText;
 
 	void Start () 
 	{
-		statText = GameObject.Find ("Canvas/StatText").GetComponent<Text> ();
-		StartCoroutine (IncrementStats());
+		//Nick i turned this off because my gym doesnt have it therefore the entire script doesnt work.
+		//statText = GameObject.Find ("Canvas/StatText").GetComponent<Text> ();
+
+		if (statText != null)
+			StartCoroutine (IncrementStats());
+
+		//might need the same gameobject.find? idk
+		if (playerEssenceText != null)
+			StartCoroutine (UpdateUI());
+		
 	}
 
 	void Update () 
 	{
-		TestStatUpdate ();
+		if (statText != null) {
+			TestStatUpdate ();
+		}
 	}
 
 	void TestStatUpdate() 
@@ -66,15 +77,28 @@ public class PlayerStats : MonoBehaviour
 		StartCoroutine (IncrementStats());
 	}
 
-	public void IncDrone()
+	IEnumerator UpdateUI()
 	{
-		dronePopulation++;
+		yield return new WaitForSeconds (1);
+		playerEssenceText.text = "Essence: " + playerEssence;
+		StartCoroutine (UpdateUI());
 	}
 
-	public void IncDroneMultiplier()
-	{
-		droneValue += 0.1f;
-	}
+	//incrementers
+	public void IncPlayerEssence(int increment){playerEssence += increment;}
+	public void IncTotalEssence(int increment){totalEssence += increment;}
+	public void IncBaseValue(int increment){baseValue += increment;}
+	public void IncDronePopulation(int increment){dronePopulation += increment;}
+	public void IncDroneReproduction(int increment){droneReproduction += increment;}
+	public void IncDroneValue(float increment){droneValue += increment;}
+	public void IncEssenceProduction(int increment){essenceProduction += increment;}
+	public void IncIdleProduction(int increment){idleProduction += increment;}
+	public void IncIdleMultiplier(float increment){idleMultiplier += increment;}
+	public void IncPlayerCredits(int increment){playerCredits += increment;}
+	public void IncPlayerDarkMatter(int increment){playerDarkMatter += increment;}
+	//change to calculate bonus from dark matter // do we need another value? //dark matter/ dark matter value/ dark matter bonus
+	public void IncDarkMatterBonus(int increment){darkMatterBonus += increment;} 
+
 
 	public void IncDarkMatter()
 	{
@@ -88,8 +112,17 @@ public class PlayerStats : MonoBehaviour
 		idleMultiplier += 10;
 	}
 
-	public void IncDroneReproduction()
-	{
-		droneReproduction += 1;
-	}
+	// Getters
+	public int GetPlayerEssence(){return playerEssence;}
+	public int GetTotalEssence(){return totalEssence;}
+	public int GetBaseBalue(){return baseValue;}
+	public int GetDronePopulation(){return dronePopulation;}
+	public int GetDroneReproduction(){return droneReproduction;}
+	public float GetDroneValue(){return droneValue;}
+	public int GetEssenceProduction(){return essenceProduction;}
+	public int GetIdleProduction(){return idleProduction;}
+	public float GetIdleMultiplier(){return idleMultiplier;}
+	public int GetPlayerCredits(){return playerCredits;}
+	public int GetPlayerDarkMatter(){return playerDarkMatter;}
+	public int GetDarkMatterBonus(){return darkMatterBonus;}
 }

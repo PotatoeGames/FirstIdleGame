@@ -9,13 +9,18 @@ public class JBuildingclick : MonoBehaviour
 {
 
 	public Text clickCounter;
-	public float clicks;
-	public float countPerClick;
+	private int clicks;
+	public int countPerClick;
+	public PlayerStats Stats;
 
 	void OnMouseDown()
 	{
-		clicks += countPerClick;
-		clickCounter.text = "Counter: " + clicks;
+		
+		/*clicks += countPerClick;
+		clickCounter.text = "Counter: " + clicks;*/
+		Stats.IncPlayerEssence (countPerClick);
+		//clicks = Stats.IncPlayerEssence () ;
+		//clickCounter.text = "Essence: " + (Stats.GetPlayerEssence () + countPerClick);
 	}
 
 }
