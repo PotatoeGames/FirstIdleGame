@@ -839,7 +839,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1867493586}
-        m_MethodName: clicked
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -895,7 +895,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6708383334bbc4141915fcdc8c20d61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickCounter: {fileID: 1336765683}
   countPerClick: 1
   Stats: {fileID: 1861528534}
 --- !u!114 &1867493587

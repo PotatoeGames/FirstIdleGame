@@ -5,52 +5,41 @@ using UnityEngine;
 //my includes
 using UnityEngine.UI;
 
-public class JTestClick : MonoBehaviour{
-
-	public Text clickCounter;
-	private int clicks;
+public class JTestClick : MonoBehaviour
+{
 	public int countPerClick;
 	public PlayerStats Stats;
-	public IEnumerator coroutine;
-
-	void Start ()
-	{
-		coroutine = inc();
-
-	}
-
-	public void clicked ()
-	{
-		//if (Stats != null)
-			//Stats.IncDronePopulation (countPerClick);
-	}
+	private bool held; //is mouse held?
+	private bool isRunning; //is score incrementing?
 		
-	public void OnPointerDown() //OnMouseDown OnPointerDown
+	public void OnPointerDown() //Mouse click down Function
 	{
-		Debug.Log ("MouseDown");
-		StartCoroutine (coroutine);
-		//yield return new WaitForSeconds (1);
+		held = true;
+		if (isRunning == false)
+			StartCoroutine (inc ());
+		else
+			CallInc ();
 	}
 
-	public void OnPointerUp() //OnMouseUp OnPointerUp
+	public void OnPointerUp() //Mouse Click let go Function
 	{
-		Debug.Log ("MouseUp");
-		StopCoroutine (coroutine);
+		held = false;
+	}
+
+	public IEnumerator inc() //While Mouse click held down, increment score
+	{
+		isRunning = true;
+		while (held) 
+		{
+			CallInc();
+			yield return new WaitForSeconds (1); //change this to a variable that changes speed
+		}
+		isRunning = false;
+	}
+
+	private void CallInc() //Function called to inc score
+	{
 		if (Stats != null)
 			Stats.IncDronePopulation (countPerClick);
 	}
-
-	public IEnumerator inc()
-	{
-		while (true) 
-		{
-			Debug.Log ("Inc");
-			yield return new WaitForSeconds (1); //change this to a variable that changes speed
-			if (Stats != null)
-				Stats.IncDronePopulation (countPerClick);
-		}
-		//StartCoroutine (coroutine);
-	}
-
-	//create a click and hold function for generating drones slowly based onother variables for speed.
 }
