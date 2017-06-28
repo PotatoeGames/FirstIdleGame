@@ -30,13 +30,14 @@ public class PlayerStats : MonoBehaviour
 	public Text playerEssenceText;
 	public Text dronePopulationText;
 	public Text playerCreditsText;
+	public Text essenceProductionText;
 
 	void Start () 
 	{
 		//Nick i turned this off because my gym doesnt have it therefore the entire script doesnt work.
 		//statText = GameObject.Find ("Canvas/StatText").GetComponent<Text> ();
 
-		if (statText != null)
+		//if (statText != null)
 			StartCoroutine (IncrementStats());
 
 		//might need the same gameobject.find? idk
@@ -53,6 +54,7 @@ public class PlayerStats : MonoBehaviour
 
 	void Update () 
 	{
+		
 		if (statText != null) {
 			TestStatUpdate ();
 		}
@@ -89,11 +91,13 @@ public class PlayerStats : MonoBehaviour
 	{
 		yield return new WaitForSeconds (1);
 		if (playerEssenceText != null)
-		playerEssenceText.text = "Essence: " + playerEssence;
+		playerEssenceText.text = "Essence: \n" + playerEssence;
 		if (dronePopulationText != null)
-		dronePopulationText.text = "Drones: " + dronePopulation;
+		dronePopulationText.text = "Drones: \n" + dronePopulation;
 		if (playerCreditsText != null)
-		playerCreditsText.text = "Credits: " + playerCredits;
+		playerCreditsText.text = "Credits: \n" + playerCredits;
+		if (essenceProductionText != null)
+		essenceProductionText.text = "Rate: \n" + essenceProduction;
 		StartCoroutine (UpdateUI());
 	}
 
